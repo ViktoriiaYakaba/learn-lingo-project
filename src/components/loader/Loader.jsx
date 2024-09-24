@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import styled from './Loader.module.scss';
 
 const Loader = () => {
   return (
-    <div>
-      
+    <div className={styled.loaderContainer}>
+    <div className={styled.loader}></div> 
     </div>
   )
 }
