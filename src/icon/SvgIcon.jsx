@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import sprite from '../assets/icon/sprite.svg';
 
-const SvgIcon = () => {
+
+const SvgIcon = ({ width, height, icon }) => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <svg width={width} height={height}>
+      <use href={`${sprite}#${icon}`}></use>
+    </svg>
+  );
+};
 
 export default SvgIcon;
