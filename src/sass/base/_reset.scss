@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --font-family: "Roboto", sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+}
+
+h1 {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-bold);
+}
+
+h2 {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-medium);
+}
+
+
+
 * {
     margin: 0;
     padding: 0;

@@ -1,0 +1,49 @@
+@import '../../sass/index';
+
+.containerError {
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    border-radius: 10px;
+    padding: 24px;
+    width: 100%;
+    max-width: 1000px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 150px auto;
+}
+
+.text {
+    font-family: var(--font-family);
+    font-weight: 500;
+    line-height: 1.2;
+    color: $text-color;
+    margin: 48px auto;
+
+    text-align: center;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 48px auto;
+}
+
+.link {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color;
+    transition: color 0.3s ease;
+    cursor: pointer;
+
+    &:hover,
+    &:focus{
+    color: $yelow-color;
+    }
+}
+
+
+

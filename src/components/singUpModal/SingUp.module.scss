@@ -1,0 +1,196 @@
+@import '../../sass/index';
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.containerForm {
+    border-radius: 30px;
+    position: fixed;
+    width: 425px;
+    height: 505px;
+    background: #fff;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    @include for-tablet {
+        width: 565px;
+        padding: 50px;
+    }
+
+    @include for-desktop {
+        width: 565px;
+        padding: 50px;
+    }
+}
+
+.containerFormSing {
+    border-radius: 30px;
+    position: fixed;
+    width: 425px;
+    height: 599px;
+    background: $white-color;
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    @include for-tablet {
+        width: 565px;
+    }
+
+    @include for-desktop {
+        width: 565px;
+    }
+}
+
+.containerTitle {
+    display: flex;
+    flex-direction: column;
+    width: 338px;
+    height: 112px;
+    gap: 20px;
+
+    @include for-tablet {
+        width: 438px;
+    }
+
+    @include for-desktop {
+        width: 438px;
+    }
+}
+
+.btnClose {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.title {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: $text-color;
+}
+
+.text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    color: rgba(18, 20, 23, 0.8);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.formList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contaierInput {
+    width: 438px;
+    height: 74px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    outline: none;
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px 16px 18px;
+    width: 338px;
+    height: 54px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    color: $text-color;
+
+    &:hover {
+        border-color: $yelow-color;
+    }
+
+    @include for-tablet {
+        width: 338px;
+    }
+
+    @include for-desktop {
+        width: 438px;
+    }
+}
+
+.error {
+    font-family: var(--font-family);
+    color: red;
+    font-weight: 400;
+    font-size: 14px;
+
+    margin-top: 4px;
+}
+
+.btn {
+    border-radius: 12px;
+    padding: 16px 80px;
+    width: 338px;
+    height: 60px;
+    font-family: var(--font-family);
+    background: $yelow-color;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.55556;
+    color: $text-color;
+    transition: 0.03s ease;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background: $ligthYelow-color;
+    }
+
+    @include for-tablet {
+        width: 438px;
+    }
+
+    @include for-desktop {
+        width: 438px;
+    }
+}

@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 const HomePage = lazy(() => import('../pages/HomePage'));
 const TeachersPage = lazy(() => import('../pages/TeacherPage'));
 const FavouritePage = lazy(() => import('../pages/FavouritPage'));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const NotFoundPage = lazy(() => import('../pages/notFoundPage/NotFoundPage'));
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="teachers" element={<TeachersPage />} />
           <Route path="favourite" element={<FavouritePage />} />
-           <Route path="*" element={<NotFoundPage/>} />
+          <Route path="*" element={<NotFoundPage/>} />
         </Route>
       </Routes>
       <Toaster
