@@ -2,6 +2,7 @@ import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './layout/Layout';
 import { Toaster } from "react-hot-toast";
+import PrivateRoute from './PrivateRoute';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const TeachersPage = lazy(() => import('../pages/TeacherPage'));

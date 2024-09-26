@@ -5,7 +5,7 @@ import style from './NotFoundPage.module.scss';
 const NotFoundPage = () => {
 
   const nav = useNavigate();
-  const time = 100000;
+  const time = 10000;
 
    useEffect(() => {
     const index = setTimeout(() => {
