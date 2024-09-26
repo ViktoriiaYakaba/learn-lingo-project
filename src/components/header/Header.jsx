@@ -92,7 +92,7 @@ const Header = () => {
 ) : (
   <div className={styled.containerBtn}>
         <button className={styled.btnLogIn} type="button" onClick={logOutHandle}>
-        <ImExit size={20} />
+        <ImExit size={18} />
       <span>Log Out</span>
     </button>
   </div>

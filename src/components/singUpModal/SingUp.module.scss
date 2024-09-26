@@ -19,7 +19,7 @@
     border-radius: 30px;
     position: fixed;
     width: 425px;
-    height: 505px;
+    height: 550px;
     background: #fff;
     padding: 30px;
 
@@ -140,6 +140,8 @@
     padding: 16px 18px 16px 18px;
     width: 338px;
     height: 54px;
+
+    font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
     line-height: 1.375;
@@ -150,7 +152,7 @@
     }
 
     @include for-tablet {
-        width: 338px;
+        width: 438px;
     }
 
     @include for-desktop {

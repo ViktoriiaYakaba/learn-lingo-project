@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+
 
 const TeachersCard = () => {
   return (
     <div>
-      
+
     </div>
   )
 }
