@@ -1,11 +1,17 @@
 import React, {useEffect} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { validationSchema } from '../../helpers/validation';
+import { useDispatch } from 'react-redux';
+import { logInUser } from '../../redux/auth/operations';
+import { useNavigate } from 'react-router-dom';
 import style from './Login.module.scss';
 import { FiX } from "react-icons/fi";
 
 const LogIn = ({ isOpen, onClose }) => {
-    if (!isOpen) return null;
+  if (!isOpen) return null;
+  
+  const dispatch = useDispatch();
+  const navigate = useNavigate(); 
 
     useEffect(() => {
     const handleEscape = (event) => {
@@ -24,6 +30,13 @@ const LogIn = ({ isOpen, onClose }) => {
         onClose();
     }
     };
+  
+   const handleSubmit = async (values, { resetForm }) => {
+    dispatch(logInUser(values));
+    navigate("/teachers");
+       resetForm();
+       onClose();
+  };
 
   return (
       <div className={style.container} onClick={handleBackdropClick}>
@@ -40,7 +53,7 @@ const LogIn = ({ isOpen, onClose }) => {
               <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={validationSchema}
-          
+          onSubmit={handleSubmit}
               >
                    {() => (
             <Form className={style.form}>

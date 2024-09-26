@@ -1,11 +1,15 @@
 import React, {useEffect} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { validationSchemaRegister } from '../../helpers/validation';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../redux/auth/operations';
 import style from './SingUp.module.scss'
 import { FiX } from "react-icons/fi";
 
 const SingUp = ({ isOpen, onClose }) => {
-    if (!isOpen) return null;
+  if (!isOpen) return null;
+  
+  const dispatch = useDispatch();
 
     useEffect(() => {
     const handleEscape = (event) => {
@@ -24,6 +28,19 @@ const SingUp = ({ isOpen, onClose }) => {
         onClose();
     }
     };
+  
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      await dispatch(registerUser(values));
+      if (onRegisterSuccess) {
+        onRegisterSuccess();
+      }
+      resetForm();
+      onClose();
+    } catch (error) {
+      console.error('Registration failed:', error);
+    }
+  };
 
   return (
       <div className={style.container} onClick={handleBackdropClick}>
@@ -39,6 +56,7 @@ Thank you for your interest in our platform! In order to register, we need some 
               <Formik
           initialValues={{ name: '', email: '', password: '' }}
           validationSchema={validationSchemaRegister}
+          onSubmit={handleSubmit}
           
               >
                    {() => (
