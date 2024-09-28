@@ -6,3 +6,19 @@ When a user accesses the homepage, they will have the opportunity to register th
 
 
 <img src="./src/assets/imgReadme/screenHome.jpg" alt="Home" width="500">
+
+On the Teachers page, users can filter the list of teachers based on various criteria such as language, level, and price. Each teacher's profile displays important details like their name, rating, and lesson information. Users have the option to add teachers to their Favorites by clicking on the heart icon, but this feature is only available to registered users. If an unregistered user tries to add a teacher to their favorites, they will be prompted to register or log in.
+
+Once the user has registered and logged in, they will have full access to all the site's features. After registration, the user will be redirected to the Favorites page, where they can view all the teachers they have added to their favorites list. This page makes it easy to manage favorites, simplifying the process of booking lessons or reviewing teacher details.
+
+In summary, registration unlocks the ability to add teachers to favorites and provides full access to the Favorites page.
+
+<div style="display: flex; gap: 20; justify-content: center;">
+    <img src="./src/assets/imgReadme/screenTeachers.jpg" alt="Teacher" width="500" style="width: 500; height: auto;">
+    <img src="./src/assets/imgReadme/screenFvorites.jpg" alt="Favorites" width="500" style="width: 500; height: auto;">
+</div>
+
+## Tools and technologies I utilized
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,sass,react,figma,js,redux,vite,vscode,git,firebase,vercel,github&theme=dark&perline=10)](https://skillicons.dev)
+
