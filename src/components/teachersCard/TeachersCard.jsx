@@ -6,7 +6,7 @@ import { addFavorite, removeFavorite } from '../../redux/favorites/slice';
 import { selectFavorites } from '../../redux/favorites/selectors';
 import style from './TeachersCard.module.scss';
 
-const TeachersCard = ({ teachers }) => {
+const TeachersCard = ({ teachers, selectedFilterLevel }) => {
   const [showMore, setShowMore] = useState(false);
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites) || [];
@@ -16,17 +16,21 @@ const TeachersCard = ({ teachers }) => {
 
   const handleFavoriteToggle = async () => {
     if (!isAuth) {
-      toast.error('You must log in to add favorites.', {
+      toast.error('You must be registered to add to favorites.', {
         icon: '❗',
       });
       return;
     }
 
+    console.log(`Current favorites: ${JSON.stringify(favorites)}`);
+    
     try {
       if (isFavorite) {
+        console.log(`Removing favorite: ${teachers.id}`);
         await dispatch(removeFavorite(teachers.id));
         toast.success(`${teachers.name} ${teachers.surname} removed from favorites`);
       } else {
+        console.log(`Adding favorite: ${teachers.id}`);
         await dispatch(addFavorite(teachers.id));
         toast.success(`${teachers.name} ${teachers.surname} added to favorites`);
       }
@@ -71,13 +75,15 @@ const TeachersCard = ({ teachers }) => {
           <button
             type="button"
             className={style.heardButton}
-            onClick={handleFavoriteToggle}
+            onClick={isAuth ? handleFavoriteToggle : () => toast.error('You must be registered to add to favorites.',{
+        icon: '❗',
+      } )} 
           >
             <SvgIcon
               width="26"
               height="26"
-              icon={isAuth && isFavorite ? 'online' : 'heard'}
-              className={isAuth && isFavorite ? style.svgOnline : style.svgHeard} 
+              icon={isAuth && isFavorite ? 'online' : 'heard'} 
+              className={isAuth ? (isFavorite ? style.svgOnline : style.svgHeard) : style.svgOnline} 
             />
           </button>
         </div>
@@ -94,7 +100,32 @@ const TeachersCard = ({ teachers }) => {
               <span>Conditions: </span>{teachers.conditions.join(', ')}
             </li>
           </ul>
-          {showMore && <p className={style.experience}>{teachers.experience}</p>}
+          {showMore && (
+            <>
+              <p className={style.experience}>{teachers.experience}</p>
+              <div className={style.containerReview}>
+                <ul className={style.listReviews}>
+                  {teachers.reviews.map((review, index) => (
+                    <li key={index} className={style.listReviewsItem}>
+                      <div className={style.reviewWrap}>
+                        <div className={style.initialCircle}>
+                          {review.reviewer_name.charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <strong className={style.reviewName}>{review.reviewer_name}</strong> 
+                          <p className={style.reviewRating}>
+                            <SvgIcon width="16" height="16" icon="star" className={style.icon} />
+                            {review.reviewer_rating}.0
+                          </p>
+                        </div>
+                      </div>
+                      <p className={style.reviewComment}>{review.comment}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
         </div>
 
         <button 
@@ -103,6 +134,24 @@ const TeachersCard = ({ teachers }) => {
         >
           {showMore ? 'Read Less' : 'Read More'}
         </button>
+        <div className={style.containerLevels}>
+          <ul className={style.levelList}>
+            {teachers.levels.map((level, index) => (
+              <li 
+                key={index} 
+                className={`${style.levelListItem} ${selectedFilterLevel === level ? style.selectedLevel : ''}`}
+              >
+                #{level}
+              </li>
+            ))}
+          </ul>
+          {showMore && (
+            <button className={style.bookTrialButton} type='button'>
+              Book Trial Lesson
+            </button>
+          )}
+        </div>
+
       </div>
     </div>
   );
