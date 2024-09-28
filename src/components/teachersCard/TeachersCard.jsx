@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from "react-hot-toast";
 import { addFavorite, removeFavorite } from '../../redux/favorites/slice';
 import { selectFavorites } from '../../redux/favorites/selectors';
+import BookModal from '../bookModal/BookModal';
 import style from './TeachersCard.module.scss';
 
 const TeachersCard = ({ teachers, selectedFilterLevel }) => {
   const [showMore, setShowMore] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites) || [];
   const isAuth = useSelector((state) => state.auth.isAuth);
@@ -36,6 +38,13 @@ const TeachersCard = ({ teachers, selectedFilterLevel }) => {
     }
   };
 
+   const openOrderModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
 
   return (
@@ -144,13 +153,19 @@ const TeachersCard = ({ teachers, selectedFilterLevel }) => {
             ))}
           </ul>
           {showMore && (
-            <button className={style.bookTrialButton} type='button'>
+            <button className={style.bookTrialButton} type='button' onClick={openOrderModal}>
               Book Trial Lesson
             </button>
           )}
         </div>
-
       </div>
+      {isModalOpen && (
+                <BookModal
+                    isOpen={isModalOpen}
+                    onClose={handleCloseModal}
+                    teacher={teachers}
+                /> 
+            )}
     </div>
   );
 };

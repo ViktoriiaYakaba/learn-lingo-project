@@ -22,3 +22,10 @@ export const validationSchemaRegister = Yup.object({
       .matches(/[@$!%*?&#]/, 'Password must contain at least one special character')
       .required('Password is required'),
   });
+
+export const validationSchemaBook = Yup.object({
+    name: Yup.string().required('Name is required'),
+    email: Yup.string().email('Invalid email address').required('Email is required'),
+    phone: Yup.string().required('Phone number is required'),
+    lessonOption: Yup.string().required('Please select an option'),
+  });

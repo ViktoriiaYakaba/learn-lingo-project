@@ -1,0 +1,298 @@
+@import '../../sass/index';
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: $white-color;
+    padding: 30px;
+    position: relative;
+    border-radius: 30px;
+    width: 399px;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+
+    @include for-tablet {
+    width: 599px;
+    padding: 60px;
+    }
+    
+    @include for-desktop {
+    width: 599px;
+    padding: 60px;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modalTitle {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: $text-color;
+    margin-bottom: 20px;
+
+    @include for-tablet {
+    font-size: 40px;
+    }
+    
+    @include for-desktop {
+    font-size: 40px;
+    }
+}
+
+.modalText {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    color: rgba(18, 20, 23, 0.8);
+    width: 372px;
+
+    @include for-tablet {
+    width: 472px;
+    }
+    
+    @include for-desktop {
+    width: 472px;
+    }
+
+}
+
+.teacherInfo {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.teacherImage {
+    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+}
+
+.teacherDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.teacher {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: $text-span-color;
+}
+
+.teacherName {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.formLabel {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: $text-color;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.radioGroup label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    text-align: center;
+    color: $text-color;
+}
+
+
+
+.radioGroup input[type="radio"] {
+    display: none;
+}
+
+.radioGroup input[type="radio"]+span {
+    width: 18px; 
+    height: 18px;
+    border: 2px solid #ccc; 
+    border-radius: 50%; 
+    display: inline-block; 
+    margin-right: 10px;
+    position: relative; 
+    background-color: $white-color; 
+}
+
+.radioGroup input[type="radio"]:checked+span {
+    background-color: $white-color;
+    border-color: $yelow-color; 
+}
+
+.radioGroup input[type="radio"]:checked+span::after {
+    content: '';
+    width: 9px; 
+    height: 9px;
+    background-color: $yelow-color;
+    border-radius: 50%; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.radioGroup input[type="radio"]+span:hover {
+    background-color: $white-color; 
+    border-color: $yelow-color; 
+}
+
+.radioGroup input[type="radio"]+span:hover::after {
+    content: '';
+    width: 8px; 
+    height: 8px;
+    background-color: $yelow-color; 
+    border-radius: 50%; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.inputField {
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    padding: 14px 14px 14px 14px;
+    width: 340px;
+    height: 44px;
+    outline: none;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    color: $text-color;
+    cursor: pointer;
+
+    &:hover,
+    &:focus{
+    border-color: $yelow-color;
+    }
+
+    ::placeholder{
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    color: $text-color;
+    }
+
+    @include for-tablet {
+    padding: 16px 16px 16px 18px;
+    width: 472px;
+    height: 54px;
+    }
+    
+    @include for-desktop {
+    padding: 16px 16px 16px 18px;
+    width: 472px;
+    height: 54px;
+    }
+}
+
+.errorMessage {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.375;
+    color: red;
+    margin-left: 20px;
+}
+
+.formGroupItem {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    height: 60px;
+}
+
+.submitButton {
+    border-radius: 12px;
+    padding: 10px 10px 10px 10px;
+    width: 340px;
+    background: $yelow-color;
+   
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.55556;
+    color: $text-color;
+    transition: 0.3s ease;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+
+    &:hover{
+    background-color: $ligthYelow-color;
+    }
+ 
+    @include for-tablet {
+    padding: 16px;
+    width: 472px;
+    }
+    
+    @include for-desktop {
+    padding: 16px;
+    width: 472px;
+    }
+
+}
