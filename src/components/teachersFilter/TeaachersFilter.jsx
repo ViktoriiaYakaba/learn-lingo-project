@@ -16,8 +16,8 @@ const TeachersFilter = () => {
   const [selectedPrice, setSelectedPrice] = useState("All price");
   const [selectedLevel, setSelectedLevel] = useState("All level");
 
-  const languagesData = ["English", "Spanish", 'Ukrainian', "French", "German", "Italian"];
-  const priceOptions = Array.from({ length: 10 }, (_, index) => (index + 1) * 10); // Prezzi da 10 a 100
+  const languagesData = ["English", "Spanish", "Ukrainian", "French", "German", "Italian"];
+  const priceOptions = ['10', '15', '20', '25', '30', '35', '40', '45', '50']; 
   const levelsData = ['A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate', 'C1 Advanced', 'C2 Proficient'];
 
   const handleOpenLanguageSelect = () => {
@@ -36,21 +36,25 @@ const TeachersFilter = () => {
     setIsLangSelectOpen(false);
   };
 
+
   const handleOpenPriceSelect = () => {
     setIsPriceSelectOpen(prev => !prev);
   };
 
   const handlePriceSelect = (price) => {
     setSelectedPrice(price);
-    dispatch(setPriceFilter(price)); 
+    const priceNum = Number(price);
+    const range = 5; 
+    dispatch(setPriceFilter([priceNum - range, priceNum + range])); 
     setIsPriceSelectOpen(false);
   };
 
   const handleClearPriceSelection = () => {
     setSelectedPrice("All price");
-    dispatch(setPriceFilter([0, Infinity])); 
+    dispatch(setPriceFilter([0, 100])); 
     setIsPriceSelectOpen(false);
   };
+
 
   const handleOpenLevelSelect = () => {
     setIsLevelSelectOpen(prev => !prev);

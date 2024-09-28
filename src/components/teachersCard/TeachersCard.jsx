@@ -22,15 +22,11 @@ const TeachersCard = ({ teachers, selectedFilterLevel }) => {
       return;
     }
 
-    console.log(`Current favorites: ${JSON.stringify(favorites)}`);
-    
     try {
       if (isFavorite) {
-        console.log(`Removing favorite: ${teachers.id}`);
         await dispatch(removeFavorite(teachers.id));
         toast.success(`${teachers.name} ${teachers.surname} removed from favorites`);
       } else {
-        console.log(`Adding favorite: ${teachers.id}`);
         await dispatch(addFavorite(teachers.id));
         toast.success(`${teachers.name} ${teachers.surname} added to favorites`);
       }
@@ -39,6 +35,8 @@ const TeachersCard = ({ teachers, selectedFilterLevel }) => {
       toast.error('Something went wrong, please try again.');
     }
   };
+
+
 
   return (
     <div className={style.container}>
@@ -75,9 +73,9 @@ const TeachersCard = ({ teachers, selectedFilterLevel }) => {
           <button
             type="button"
             className={style.heardButton}
-            onClick={isAuth ? handleFavoriteToggle : () => toast.error('You must be registered to add to favorites.',{
-        icon: '❗',
-      } )} 
+            onClick={isAuth ? handleFavoriteToggle : () => toast.error('You must be registered to add to favorites.', {
+              icon: '❗',
+            })} 
           >
             <SvgIcon
               width="26"
@@ -139,7 +137,7 @@ const TeachersCard = ({ teachers, selectedFilterLevel }) => {
             {teachers.levels.map((level, index) => (
               <li 
                 key={index} 
-                className={`${style.levelListItem} ${selectedFilterLevel === level ? style.selectedLevel : ''}`}
+                className={`${style.levelListItem} ${selectedFilterLevel === level ? style.activeLevel : ''}`}
               >
                 #{level}
               </li>

@@ -37,7 +37,7 @@ const FavouriteList = () => {
         <div className={style.container}>
             <div className={style.teachersList}>
                 {noFavoriteTeachers ? (
-                    <p>You haven't added any teachers to your favorites yet.</p>
+                    <p className={style.text}>🌟 You haven't added any teachers to your favorites yet. </p>
                 ) : (
                     favoriteTeachers.slice(0, visibleCount).map(teacher => (
                         <TeachersCard 

@@ -43,7 +43,7 @@ const TeachersList = () => {
                         />
                     ))
                 ) : (
-                    <p>No teachers found.</p>
+                    <p className={style.text}>No teachers found.</p>
                 )}
             </div>
             {items.length > visibleCount && (
