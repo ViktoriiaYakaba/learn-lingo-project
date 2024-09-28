@@ -1,0 +1,376 @@
+@import '../../sass/index';
+
+.container {
+    border-radius: 24px;
+    padding: 24px;
+    width: 410px;
+    background: $white-color;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+
+    @include for-tablet {
+    width: 779px;
+    gap: 18px;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    }
+    
+    @include for-desktop {
+    width: 1158px;
+    gap: 48px;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    }
+}
+
+.containerImage{
+    display: inline-block;
+    border: 3px solid $ligthYelow-color;
+    border-radius: 50%;
+    padding: 7px;
+    background-color: $white-color;
+}
+
+.img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.containerLang{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    @include for-tablet {
+    gap: 32px;
+    }
+    
+    @include for-desktop {
+    gap: 32px;
+    }
+}
+
+.langTitle{
+   display: flex; 
+   flex-direction: column;
+   gap: 5px;
+   justify-content: center;
+   align-items: start;
+}
+
+.containerLangItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    @include for-tablet {
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    }
+    
+    @include for-desktop {
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    width: 968px;
+    gap: 90px;
+    }
+}
+
+.heardButton{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.textLang{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $text-span-color;
+}
+
+.titlLang{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1;
+    color: $text-color;
+}
+
+.listLang{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.listLangItem{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 16px;
+    gap: 8px;
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color; 
+
+    &:last-child{
+    color: $fluo-color;
+    }
+
+    &:first-child{
+    padding-left: 0;
+    }
+
+    @include for-desktop {
+    &:after {
+    content: "";
+    display: block;
+    height: 17px;
+    width: 1px;
+    background-color: rgba(18, 20, 23, 0.2);
+    margin-left: 10px;
+    }
+    }
+
+}
+
+
+
+
+.langSpan {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color;
+}
+
+.containerInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.listInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color;
+    width: 370px;
+
+    @include for-tablet {
+    width: 600px;
+    }
+    
+    @include for-desktop {
+    width: 940px;
+    }
+}
+
+.listInfoItemSpan{
+    margin-top: 32px;
+
+    color: $text-span-color;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    & span{
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration-line: underline;
+    }
+}
+
+.listInfoItem span {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-span-color;
+}
+
+.readMoreButton {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: $text-color;
+
+    border: none;
+    background-color: transparent;
+    display: flex;
+    cursor: pointer;
+    transition: 0.03s ease;
+
+    &:hover{
+    color: $yelow-color;
+    }
+}
+
+.experience {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color;
+
+    width: 370px;
+    margin-top: 10px;
+
+    @include for-tablet {
+    width: 600px;
+    }
+    
+    @include for-desktop {
+    width: 940px;
+    }
+}
+
+.levelList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.levelListItem {
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    border-radius: 35px;
+    padding: 8px;
+    height: 32px;
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14286;
+    color: $text-color;
+}
+
+.selectedLevel {
+    background-color: $orange-color;
+}
+
+.containerReview {
+    margin-top: 32px;
+}
+
+.containerReview {
+    margin-top: 32px;
+}
+
+.listReviews {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.listReviewsItem {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.reviewWrap {
+    display: flex;
+    align-items: center;
+}
+
+.reviewName {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-span-color;
+}
+
+.reviewRating {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    color: $text-color;
+
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.reviewComment {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color;
+    margin-top: 12px;
+}
+
+.initialCircle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $yelow-color;
+    color: $white-color;
+    font-family: var(--font-family);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.bookTrialButton {
+    border-radius: 12px;
+    width: 200px;
+    height: 50px;
+    background: $yelow-color;
+
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.55556;
+    color: $text-color;
+    transition: 0.5s ease;
+    margin-top: 32px;
+    border: none;
+}
+
+.bookTrialButton:hover {
+    background: $ligthYelow-color;
+}

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import style from './Button.module.scss';
 
-const Button = () => {
+const Button = ({onClick}) => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <button className={style.button} onClick={onClick}>Load more</button>
+    </>
   )
 }
 

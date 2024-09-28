@@ -16,11 +16,9 @@ const TeachersFilter = () => {
   const [selectedPrice, setSelectedPrice] = useState("All price");
   const [selectedLevel, setSelectedLevel] = useState("All level");
 
-
-  const languagesData = ["English", "Spanish", 'Ukrainian',  "French", "German", "Italian"];
-  const priceOptions = Array.from({ length: 10 }, (_, index) => (index + 1) * 5);
+  const languagesData = ["English", "Spanish", 'Ukrainian', "French", "German", "Italian"];
+  const priceOptions = Array.from({ length: 10 }, (_, index) => (index + 1) * 10); // Prezzi da 10 a 100
   const levelsData = ['A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate', 'C1 Advanced', 'C2 Proficient'];
-
 
   const handleOpenLanguageSelect = () => {
     setIsLangSelectOpen(prev => !prev);
@@ -34,10 +32,9 @@ const TeachersFilter = () => {
 
   const handleClearLanguageSelection = () => {
     setSelectedLanguage("All languages");
-    dispatch(setLanguageFilter(null)); 
+    dispatch(setLanguageFilter(''));
     setIsLangSelectOpen(false);
   };
-
 
   const handleOpenPriceSelect = () => {
     setIsPriceSelectOpen(prev => !prev);
@@ -51,11 +48,10 @@ const TeachersFilter = () => {
 
   const handleClearPriceSelection = () => {
     setSelectedPrice("All price");
-    dispatch(setPriceFilter(null)); 
+    dispatch(setPriceFilter([0, Infinity])); 
     setIsPriceSelectOpen(false);
   };
 
-  
   const handleOpenLevelSelect = () => {
     setIsLevelSelectOpen(prev => !prev);
   };
@@ -68,7 +64,7 @@ const TeachersFilter = () => {
 
   const handleClearLevelSelection = () => {
     setSelectedLevel("All level");
-    dispatch(setLevelFilter(null)); 
+    dispatch(setLevelFilter('')); 
     setIsLevelSelectOpen(false);
   };
 
@@ -108,9 +104,9 @@ const TeachersFilter = () => {
             ))}
           </ul>
         </div>
-        
       </div>
-       <div className={style.filterBox}>
+
+      <div className={style.filterBox}>
         <div className={style.filterPlaceholder}>Price</div>
         <div className={style.inputBoxStyled} onClick={handleOpenPriceSelect}>
           {selectedPrice} $
